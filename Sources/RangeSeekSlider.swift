@@ -92,6 +92,8 @@ import UIKit
         formatter.maximumFractionDigits = 0
         return formatter
     }()
+    
+    open var lengthFormatter: LengthFormatter?
 
     /// Hides the labels above the slider controls. true = labels will be hidden. false = labels will be shown. Default is false.
     @IBInspectable open var hideLabels: Bool = false {
@@ -479,13 +481,21 @@ import UIKit
         if let replacedString = delegate?.rangeSeekSlider(self, stringForMinValue: selectedMinValue) {
             minLabel.string = replacedString
         } else {
-            minLabel.string = numberFormatter.string(from: selectedMinValue as NSNumber)
+            if lengthFormatter = LengthFormatter {
+                 minLabel.string = lengthFormatter.string(from: selectedMinValue as NSNumber)
+            } else {
+                minLabel.string = numberFormatter.string(from: selectedMinValue as NSNumber)
+            }
         }
 
         if let replacedString = delegate?.rangeSeekSlider(self, stringForMaxValue: selectedMaxValue) {
             maxLabel.string = replacedString
         } else {
-            maxLabel.string = numberFormatter.string(from: selectedMaxValue as NSNumber)
+            if lengthFormatter = LengthFormatter {
+                maxLabel.string = lengthFormatter.string(from: selectedMaxValue as NSNumber)
+            } else {
+                maxLabel.string = numberFormatter.string(from: selectedMaxValue as NSNumber)
+            }
         }
 
         if let nsstring = minLabel.string as? NSString {
