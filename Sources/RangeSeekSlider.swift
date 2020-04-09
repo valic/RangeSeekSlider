@@ -481,7 +481,7 @@ import UIKit
         if let replacedString = delegate?.rangeSeekSlider(self, stringForMinValue: selectedMinValue) {
             minLabel.string = replacedString
         } else {
-            if lengthFormatter = lengthFormatter {
+            if let lengthFormatter = lengthFormatter {
                  minLabel.string = lengthFormatter.string(from: selectedMinValue as NSNumber)
             } else {
                 minLabel.string = numberFormatter.string(from: selectedMinValue as NSNumber)
@@ -491,7 +491,7 @@ import UIKit
         if let replacedString = delegate?.rangeSeekSlider(self, stringForMaxValue: selectedMaxValue) {
             maxLabel.string = replacedString
         } else {
-            if lengthFormatter = lengthFormatter {
+            if let lengthFormatter = lengthFormatter {
                 maxLabel.string = lengthFormatter.string(from: selectedMaxValue as NSNumber)
             } else {
                 maxLabel.string = numberFormatter.string(from: selectedMaxValue as NSNumber)
