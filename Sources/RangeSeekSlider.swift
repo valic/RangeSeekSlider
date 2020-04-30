@@ -482,7 +482,7 @@ import UIKit
             minLabel.string = replacedString
         } else {
             if let lengthFormatter = lengthFormatter {
-                let heightCentimeters = Measurement(value: Double(selectedMinValue), unit: UnitLength.centimeters)
+                let heightCentimeters = Measurement(value: Double(selectedMinValue), unit: UnitLength.meters)
                 
                 let meters = heightCentimeters.converted(to: .meters).value
                 minLabel.string = lengthFormatter.string(fromMeters: meters)
@@ -495,7 +495,7 @@ import UIKit
             maxLabel.string = replacedString
         } else {
             if let lengthFormatter = lengthFormatter {
-                let heightCentimeters = Measurement(value: Double(selectedMaxValue), unit: UnitLength.centimeters)
+                let heightCentimeters = Measurement(value: Double(selectedMaxValue), unit: UnitLength.meters)
                 
                 let meters = heightCentimeters.converted(to: .meters).value
                 
